@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="ZSLCM_REFUND_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="EtData" sap:content-version="1">
+				<Key><PropertyRef Name="Rfid"/></Key><Property Name="Rfid" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Refund ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Student12" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Student Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DateApplyed" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PayeeName" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Character 100"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PayeeAcNo" Type="Edm.String" Nullable="false" MaxLength="34" sap:unicode="false" sap:label="IBAN" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PayeeBranch" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Voucher" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Voucher List"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Approved" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="REFUND_DATA" sap:content-version="1">
+				<Key><PropertyRef Name="IvAction"/><PropertyRef Name="IvGet"/></Key><Property Name="IvAction" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Component of the Version Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="IvGet" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Json Data" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="IvJson" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="IV_JSON" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Refund_createData" sap:content-version="1">
+				<Key><PropertyRef Name="IvAction"/><PropertyRef Name="IvGet"/></Key><Property Name="IvAction" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Component of the Version Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="IvGet" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Json Data" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="IvJson" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="IV_JSON" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityContainer Name="ZSLCM_REFUND_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="EtDataSet" EntityType="ZSLCM_REFUND_SRV.EtData" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="REFUND_DATASet" EntityType="ZSLCM_REFUND_SRV.REFUND_DATA" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="Refund_createDataSet" EntityType="ZSLCM_REFUND_SRV.Refund_createData" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/></EntityContainer><atom:link rel="self"
+				href="https://webidecp-cc3f10ea8.dispatcher.ap1.hana.ondemand.com/destinations/UCADEV/sap/opu/odata/sap/ZSLCM_REFUND_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link rel="latest-version"
+				href="https://webidecp-cc3f10ea8.dispatcher.ap1.hana.ondemand.com/destinations/UCADEV/sap/opu/odata/sap/ZSLCM_REFUND_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

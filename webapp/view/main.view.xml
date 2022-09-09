@@ -1,0 +1,282 @@
+<mvc:View controllerName="ZWITHDRAWAL_APP.ZWITHDRAWAL_APP.controller.main" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified" height="100%" displayBlock=" true">
+	<!--xmlns:html="http://www.w3.org/1999/xhtml"-->
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}" enableScrolling="true" titleAlignment="Center" floatingFooter="true"
+					class="sapUiResponsivePadding--header sapUiResponsivePadding--content sapUiResponsivePadding--footer sapUiResponsivePadding--floatingFooter"
+					showHeader="true">
+					<content>
+						<Panel id="pnlSelection" expandable="true" expanded="true" expand="onExpand" width="auto" class="sapUiResponsiveMargin"
+							backgroundDesign="Solid">
+							<headerToolbar>
+								<OverflowToolbar active="true" press="onOverflowToolbarPressSelection">
+									<Title text="Selection"/>
+									<ToolbarSpacer/>
+								</OverflowToolbar>
+							</headerToolbar>
+							<content>
+								<!---->
+								<f:Form>
+									<f:layout>
+										<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="true" emptySpanXL="1" emptySpanL="1"
+											emptySpanM="1" emptySpanS="1" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+									</f:layout>
+									<f:FormContainer>
+										<f:formElements>
+											<f:FormElement label="{i18n>lblIntakeNo}">
+												<f:fields>
+													<Input id="intake_no" placeholder="Enter Intake Number.." value="{SelData>/intake_no}" required="false" showValueHelp="true"
+														valueHelpOnly="true" valueHelpRequest=".onF4Intake">
+														<!--<core:Item key="{oF4Intake>intake_no}" text="{oF4Intake>intake_no}"/>-->
+													</Input>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label=" {i18n>lblStudentID}">
+												<f:fields>
+													<Input id="st_no" placeholder="Enter Student Number.." value="{SelData>/student12}" required="true"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>lblBEGDA}">
+												<f:fields>
+													<DatePicker id="begda" placeholder="Start Date required" editable="true" value="{SelData>/begda}" textAlign="Left" displayFormat="long"
+														secondaryCalendarType="Islamic" required="true"/>
+												</f:fields>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+									<f:FormContainer>
+										<f:FormElement label="{i18n>lblProgramID}">
+											<f:fields>
+												<Input id="program_id" placeholder="Enter Program.." value="{SelData>/program_id}" required="true" showValueHelp="true" valueHelpOnly="true"
+													valueHelpRequest=".onF4Program"/>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="{i18n>lblCourseID}">
+											<f:fields>
+												<Input id="course_id" placeholder="Enter Course.." value="{SelData>/course_id}" required="true" showValueHelp="true" valueHelpOnly="true"
+													valueHelpRequest=".onF4Course"/>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="{i18n>lblENDDA}">
+											<f:fields>
+												<DatePicker id="endda" placeholder="End Date required" editable="true" value="{SelData>/endda}" textAlign="Left" displayFormat="long"
+													secondaryCalendarType="Islamic" required="true"/>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement>
+											<f:fields>
+												<ToolbarSpacer/>
+												<ToolbarSpacer/>
+												<ToolbarSpacer/>
+												<Button id="reset" type="Default" text="{i18n>lblReset}" press="onReset"/>
+												<Button id="fetch" type="Emphasized" text="{i18n>lblContinue}" press="onFetch"/>
+											</f:fields>
+										</f:FormElement>
+									</f:FormContainer>
+								</f:Form>
+								<!---->
+								<!---->
+							</content>
+						</Panel>
+						<!---->
+						<!---->
+						<Panel id="pnlHeader" expandable="true" expanded="true" expand="onExpand" width="auto" class="sapUiResponsiveMargin">
+							<headerToolbar>
+								<OverflowToolbar active="true" press="onOverflowToolbarPressHeader">
+									<Title text="{RFData>/student12}: {RFData>/st_name}"/>
+									<ToolbarSpacer/>
+								</OverflowToolbar>
+							</headerToolbar>
+							<content>
+								<!---->
+								<f:Form>
+									<f:layout>
+										<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+											emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="2" singleContainerFullSize="false"/>
+									</f:layout>
+									<f:FormContainer>
+										<f:formElements>
+											<f:FormElement label="{i18n>lblStudentID}">
+												<f:fields>
+													<Text text="{RFData>/student12}" emptyIndicatorMode="On"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>lblCampusID}">
+												<Text text="{RFData>/campus_id}" emptyIndicatorMode="On"/>
+											</f:FormElement>
+											<f:FormElement label="{i18n>lblCampusName}">
+												<Text text="{RFData>/campus_t}" emptyIndicatorMode="On"/>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+									<f:FormContainer>
+										<f:formElements>
+											<f:FormElement label="{i18n>lblDepartment}">
+												<Text text="{RFData>/depart_t}" emptyIndicatorMode="On"/>
+											</f:FormElement>
+											<f:FormElement label="{i18n>lblFacultyID}">
+												<Text text="{RFData>/fact_id}" emptyIndicatorMode="On"/>
+											</f:FormElement>
+											<f:FormElement label="{i18n>lblFacultyName}">
+												<Text text="{RFData>/fact_t}" emptyIndicatorMode="On"/>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+									<f:FormContainer>
+										<f:formElements>
+											<f:FormElement label="{i18n>lblProgramShort}">
+												<Text text="{RFData>/cs_objid_s}" emptyIndicatorMode="On"/>
+											</f:FormElement>
+											<f:FormElement label="{i18n>lblProgramName}">
+												<Text text="{RFData>/cs_objid_l}" emptyIndicatorMode="On"/>
+											</f:FormElement>
+											<f:FormElement label="{i18n>lblCourseShort}">
+												<Text text="{RFData>/cs_objid}" emptyIndicatorMode="On"/>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+								</f:Form>
+								<!---->
+								<!---->
+							</content>
+						</Panel>
+						<!---->
+						<!---->
+						<Panel id="pnlData" expandable="true" expanded="true" expand="onExpand" width="auto" class="sapUiResponsiveMargin">
+							<headerToolbar>
+								<OverflowToolbar active="true" press="onOverflowToolbarPressData">
+									<Title text="{i18n>lblDetails}"/>
+									<ToolbarSpacer/>
+								</OverflowToolbar>
+							</headerToolbar>
+							<content>
+								<f:Form>
+									<f:layout>
+										<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="true" emptySpanXL="1" emptySpanL="1"
+											emptySpanM="1" emptySpanS="1" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+									</f:layout>
+									<f:FormContainer>
+										<f:formElements>
+											<f:FormElement>
+												<Label text="{i18n>lblPayeeInfo}" design="Bold"/>
+											</f:FormElement>
+											<f:FormElement label="{i18n>lblPayeeName}">
+												<f:fields>
+													<Input id="payee_name" placeholder="Enter Name.." value="{RFData>/payee_name}" required="true"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>lblBankAccountNo}">
+												<f:fields>
+													<Input id="payee_ac_no" placeholder="Enter Bank Account Number.." value="{RFData>/payee_ac_no}" required="true"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>lblBankBranch}">
+												<f:fields>
+													<Input id="payee_branch" placeholder="Enter Bank Branch.." value="{RFData>/payee_branch}" required="true" class="sapUiMediumMarginBottom"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>lblVoucher}">
+												<f:fields>
+													<!---->
+													<!--<Input placeholder="Enter Voucher no.." value="{RFData>/voucher}" required="true" type="Number"/>-->
+													<!--<MultiInput id="vouchList" showValueHelp="false" required="true" placeholder="Enter Voucher Numbers.." value="{RFData>/voucher}"-->
+													<!--	type="Number" visible="true"/>-->
+													<MultiInput id="vouchList" showValueHelp="false" required="true" placeholder="Enter Voucher Numbers.." type="Number"
+														tokens="{ path: 'RFData>/voucher'}">
+														<tokens>
+															<Token key="{RFData>}" text="{RFData>}"/>
+														</tokens>
+													</MultiInput>
+													<!---->
+												</f:fields>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+									<f:FormContainer>
+										<f:formElements>
+											<f:FormElement label="{i18n>lblApplyDate}">
+												<DatePicker id="appli_date" placeholder="Date required" editable="false" value="{RFData>/appli_date}" textAlign="Center"
+													displayFormat="long" secondaryCalendarType="Islamic"/>
+											</f:FormElement>
+										</f:formElements>
+										<f:FormElement label="{i18n>lblReason}">
+											<f:fields>
+												<TextArea id="st_rf_reason" placeholder="Enter refund reason.." rows="8" growing="true" growingMaxLines="20" width="100%" required="true"
+													value="{RFData>/st_rf_reson}"/>
+											</f:fields>
+										</f:FormElement>
+									</f:FormContainer>
+								</f:Form>
+							</content>
+						</Panel>
+						<!---->
+						<!---->
+						<Panel id="pnlUpload" expandable="true" expanded="true" expand="onExpand" width="auto" class="sapUiResponsiveMargin">
+							<headerToolbar>
+								<OverflowToolbar active="true" press="onOverflowToolbarPressUpload">
+									<Title text="{i18n>lblAttachments}"/>
+									<ToolbarSpacer/>
+								</OverflowToolbar>
+							</headerToolbar>
+							<content>
+								<f:Form>
+									<f:layout>
+										<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="true" emptySpanXL="1" emptySpanL="1"
+											emptySpanM="1" emptySpanS="1" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+									</f:layout>
+									<f:FormContainer>
+										<f:formElements>
+											<f:FormElement label="{i18n>lblVoucherAttach}">
+												<u:FileUploader id="vouchAttach" name="vouchmimetypeAttach" uploadUrl="upload/" tooltip="Withdrawal form Attachment"
+													placeholder="Choose a voucher file for Upload.." style="Emphasized" change="handleUploadComplete" required="true"/>
+											</f:FormElement>
+											<f:FormElement>
+												<List id="vouchAttachList" mode="Delete" delete="handleFileDelete" itemPress="UploadedFileShow" items="{AttachList>/}">
+													<StandardListItem title="{AttachList>filename}" icon="{ path: 'AttachList>mimetype', formatter: '.formatter.attachIcon'}"
+														iconDensityAware="false" iconInset="false" type="Navigation"/>
+												</List>
+												<!--icon="{ path: 'AttachList>ATMIM', formatter: 'zce_initiator.Util.Formatter.attachIcon'}-->
+												<!---->
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+									<f:FormContainer>
+										<f:formElements>
+											<f:FormElement label="{i18n>lblOthAttach}">
+												<u:FileUploader id="othAttach" name="othAttach" uploadUrl="upload/" tooltip="Withdrawal form Attachment"
+													placeholder="Choose a other file for Upload.." change="oth_handleUploadComplete"/>
+												<!--uploadComplete="handleUploadComplete"-->
+											</f:FormElement>
+											<f:FormElement>
+												<!---->
+												<!--headerText="Products"-->
+												<List id="othAttachList" mode="Delete" delete="oth_handleFileDelete" itemPress="oth_UploadedFileShow" items="{othAttachList>/}">
+													<StandardListItem title="{othAttachList>filename}"
+														icon="{path: 'othAttachList>mimetype', formatter: 'ZWITHDRAWAL_APP.ZWITHDRAWAL_APP.model.formatter.attachIcon'}" iconDensityAware="false"
+														iconInset="false" type="Navigation"/>
+												</List>
+												<!---->
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+								</f:Form>
+							</content>
+						</Panel>
+						<!---->
+						<!---->
+						<Label id="note1" text="* UCA issued Fee Voucher." design="Bold"/>
+					</content>
+					<footer>
+						<OverflowToolbar>
+							<ToolbarSpacer/>
+							<Button id="submit" type="Accept" text="{i18n>lblSubmit}" press="onSubmit"/>
+							<Button id="close" type="Default" text="{i18n>lblClose}" press="onClose"/>
+						</OverflowToolbar>
+					</footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
